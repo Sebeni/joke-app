@@ -8,7 +8,6 @@ import pl.seb.czech.jokesapp.service.JokeService;
 import pl.seb.czech.jokesapp.service.JokeServiceImpl;
 
 @Controller
-@RequestMapping("chuck")
 public class JokeController {
     private JokeService jokeService;
 
@@ -17,7 +16,7 @@ public class JokeController {
         this.jokeService = jokeService;
     }
     
-    @RequestMapping("joke")
+    @RequestMapping({"/", ""})
     public String getJoke(Model model){
         model.addAttribute("joke", jokeService.getJoke());
         return "chucknorris";
